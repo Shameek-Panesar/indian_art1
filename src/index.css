@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #12100E;
+    color: #F5EBE6;
+    background-image: 
+      radial-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 0),
+      radial-gradient(rgba(200, 90, 50, 0.02) 1px, transparent 0);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12100E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3D332C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C85A32;
+}
+
+/* Gold Text Gradient Utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #9A7B1C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Terracotta Gradient Utility */
+.text-terracotta-gradient {
+  background: linear-gradient(135deg, #E28461 0%, #C85A32 50%, #9E3C1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Border Glow Utility */
+.border-gold-glow {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+/* Parchment Texture Overlay */
+.parchment-bg {
+  background-color: #181412;
+  background-image: radial-gradient(#261F1B 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(24, 20, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(61, 51, 44, 0.5);
+}
