@@ -10,6 +10,7 @@ export default function IndiaMap({ onSelectLocationFilter }) {
     <section id="map" className="py-24 bg-museum-bg relative border-t border-museum-border/40 overflow-hidden">
       {/* Background Lighting */}
       <div className="absolute top-1/4 right-10 w-96 h-96 bg-museum-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-museum-terracotta/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -24,107 +25,118 @@ export default function IndiaMap({ onSelectLocationFilter }) {
           </h2>
 
           <p className="text-base sm:text-lg text-museum-muted font-sans font-light leading-relaxed">
-            Click on any historical site marker across the Indian subcontinent to discover its iconic masterpieces and artistic legacy.
+            Click on any historical site marker across the historical map of India to discover its iconic masterpieces and artistic legacy.
           </p>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-museum-gold to-transparent mx-auto rounded-full" />
         </div>
 
         {/* Map & Info Card Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-museum-card/80 border border-museum-border/70 rounded-3xl p-6 sm:p-8 shadow-2xl">
-          {/* Left Column: Interactive Stylized Vector Map */}
-          <div className="lg:col-span-7 relative min-h-[400px] sm:min-h-[500px] flex items-center justify-center bg-museum-dark/60 rounded-2xl border border-museum-border/50 p-4 overflow-hidden">
-            {/* Background Grid & Compass Rose */}
-            <div className="absolute inset-0 bg-[radial-gradient(#3D332C_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-museum-card/90 border border-museum-border/70 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+          {/* Left Column: Vintage Map of India */}
+          <div className="lg:col-span-7 relative min-h-[480px] sm:min-h-[560px] flex items-center justify-center bg-[#131110] rounded-2xl border border-museum-gold/30 p-3 sm:p-4 overflow-hidden shadow-2xl">
+            {/* Background Grid Accent */}
+            <div className="absolute inset-0 bg-[radial-gradient(#3D332C_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
             {/* Compass Ornament */}
-            <div className="absolute top-4 left-4 opacity-30 pointer-events-none flex items-center gap-2 text-museum-gold font-mono text-[10px] uppercase">
-              <Compass className="w-6 h-6 animate-spin-slow" />
-              <span>N Subcontinent Map</span>
+            <div className="absolute top-4 left-4 z-20 opacity-60 pointer-events-none flex items-center gap-2 text-museum-gold font-mono text-[11px] uppercase tracking-wider bg-museum-dark/70 px-3 py-1 rounded-md border border-museum-gold/20 backdrop-blur-sm">
+              <Compass className="w-4 h-4 animate-spin-slow text-museum-gold" />
+              <span>Historical Map of India</span>
             </div>
 
-            {/* Stylized SVG Outline Map of Subcontinent */}
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full max-h-[480px] text-museum-border/60 drop-shadow-[0_0_15px_rgba(212,175,55,0.1)]"
-            >
-              {/* Simplified Artistic Subcontinent Path */}
-              <path
-                d="M 20 25 
-                   C 25 15, 45 10, 65 12 
-                   C 80 15, 90 30, 85 45 
-                   C 80 55, 75 60, 68 70 
-                   C 60 80, 52 92, 50 95 
-                   C 48 92, 42 78, 38 72 
-                   C 32 62, 28 55, 25 45 
-                   C 18 40, 15 30, 20 25 Z"
-                fill="#181412"
-                stroke="#3D332C"
-                strokeWidth="0.75"
-                strokeDasharray="2 1"
+            {/* Container for Vintage Map Image and SVG Marker Overlay */}
+            <div className="relative w-full h-full max-h-[540px] flex items-center justify-center rounded-xl overflow-hidden shadow-lg border border-museum-border/50">
+              {/* Vintage Map Image */}
+              <img
+                src="./vintage-india-map.png"
+                alt="Historical Vintage Map of India"
+                className="w-full h-full object-contain max-h-[540px] rounded-xl filter contrast-[1.05] brightness-[0.95] sepia-[0.1]"
               />
 
-              {/* Decorative Rivers Lines */}
-              <path d="M 22 30 Q 35 38 56 38 Q 68 45 74 50" fill="none" stroke="#D4AF37" strokeWidth="0.3" opacity="0.4" />
-              <path d="M 50 15 Q 52 35 50 85" fill="none" stroke="#C85A32" strokeWidth="0.3" opacity="0.3" />
-
-              {/* Location Pins */}
-              {MAP_LOCATIONS.map((loc) => {
-                const isActive = activeLocation?.id === loc.id;
-                return (
-                  <g key={loc.id} className="cursor-pointer group" onClick={() => setActiveLocation(loc)}>
-                    {/* Invisible hit box area to ensure mouse pointer remains continuously hovered */}
-                    <circle
-                      cx={loc.coords.x}
-                      cy={loc.coords.y}
-                      r="5"
-                      fill="transparent"
-                      className="cursor-pointer"
-                    />
-
-                    {/* Pulsing outer ring if active */}
-                    {isActive && (
+              {/* Interactive Location Marker Pins Overlay */}
+              <svg
+                viewBox="0 0 100 100"
+                className="absolute inset-0 w-full h-full max-h-[540px] pointer-events-auto select-none"
+              >
+                {MAP_LOCATIONS.map((loc) => {
+                  const isActive = activeLocation?.id === loc.id;
+                  return (
+                    <g key={loc.id} className="cursor-pointer group" onClick={() => setActiveLocation(loc)}>
+                      {/* Invisible hit-area circle */}
                       <circle
                         cx={loc.coords.x}
                         cy={loc.coords.y}
-                        r="3.5"
-                        fill="none"
-                        stroke="#C85A32"
-                        strokeWidth="0.5"
-                        className="animate-ping pointer-events-none"
+                        r="6"
+                        fill="transparent"
                       />
-                    )}
 
-                    {/* Pin Circle */}
-                    <circle
-                      cx={loc.coords.x}
-                      cy={loc.coords.y}
-                      r={isActive ? "2.4" : "1.8"}
-                      fill={isActive ? "#C85A32" : "#D4AF37"}
-                      stroke="#12100E"
-                      strokeWidth="0.4"
-                      style={{
-                        transformOrigin: `${loc.coords.x}px ${loc.coords.y}px`
-                      }}
-                      className="transition-transform duration-300 group-hover:scale-125"
-                    />
+                      {/* Active Pulsing Ring */}
+                      {isActive && (
+                        <circle
+                          cx={loc.coords.x}
+                          cy={loc.coords.y}
+                          r="4.5"
+                          fill="none"
+                          stroke="#C85A32"
+                          strokeWidth="0.8"
+                          className="animate-ping opacity-85 pointer-events-none"
+                        />
+                      )}
 
-                    {/* Pin Label Text */}
-                    <text
-                      x={loc.coords.x + 3.5}
-                      y={loc.coords.y + 1}
-                      fontSize="2.4"
-                      fontFamily="Cormorant Garamond"
-                      fontWeight="bold"
-                      fill={isActive ? "#F5EBE6" : "#A3968C"}
-                      className="transition-colors duration-200 group-hover:fill-museum-gold select-none pointer-events-none"
-                    >
-                      {loc.name}
-                    </text>
-                  </g>
-                );
-              })}
-            </svg>
+                      {/* Outer Glow Circle */}
+                      <circle
+                        cx={loc.coords.x}
+                        cy={loc.coords.y}
+                        r={isActive ? "3.2" : "2.2"}
+                        fill={isActive ? "rgba(200, 90, 50, 0.4)" : "rgba(212, 175, 55, 0.3)"}
+                        className="transition-all duration-300"
+                      />
+
+                      {/* Core Pin Circle */}
+                      <circle
+                        cx={loc.coords.x}
+                        cy={loc.coords.y}
+                        r={isActive ? "2.2" : "1.6"}
+                        fill={isActive ? "#C85A32" : "#D4AF37"}
+                        stroke="#0D0C0B"
+                        strokeWidth="0.5"
+                        style={{
+                          transformOrigin: `${loc.coords.x}% ${loc.coords.y}%`
+                        }}
+                        className="transition-transform duration-300 group-hover:scale-125 drop-shadow-md"
+                      />
+
+                      {/* Inner White Core */}
+                      <circle
+                        cx={loc.coords.x}
+                        cy={loc.coords.y}
+                        r={isActive ? "0.7" : "0.5"}
+                        fill="#FFFFFF"
+                        className="pointer-events-none"
+                      />
+
+                      {/* Pin Label Text */}
+                      <g className="pointer-events-none transition-all duration-300 group-hover:translate-x-0.5">
+                        <text
+                          x={loc.coords.x + 2.8}
+                          y={loc.coords.y + 0.8}
+                          fontSize="2.4"
+                          fontFamily="Cormorant Garamond, serif"
+                          fontWeight="700"
+                          fill={isActive ? "#FFFFFF" : "#1A1410"}
+                          stroke="#FFFFFF"
+                          strokeWidth="0.6"
+                          paintOrder="stroke"
+                          className="select-none transition-colors duration-200 group-hover:fill-museum-terracotta"
+                        >
+                          {loc.name}
+                        </text>
+                      </g>
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
           </div>
 
           {/* Right Column: Location Detail Card */}
@@ -147,7 +159,7 @@ export default function IndiaMap({ onSelectLocationFilter }) {
                       {activeLocation.name}
                     </h3>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-museum-gold/10 border border-museum-gold/30 flex items-center justify-center text-museum-gold">
+                  <div className="w-10 h-10 rounded-full bg-museum-gold/10 border border-museum-gold/30 flex items-center justify-center text-museum-gold shadow-inner">
                     <MapPin className="w-5 h-5" />
                   </div>
                 </div>
@@ -156,7 +168,7 @@ export default function IndiaMap({ onSelectLocationFilter }) {
                   <span className="text-[11px] uppercase font-mono text-museum-muted tracking-wider block">
                     Historical Period
                   </span>
-                  <span className="inline-block px-3 py-1 rounded-md bg-museum-bg border border-museum-border text-xs font-mono text-museum-gold font-semibold">
+                  <span className="inline-block px-3 py-1 rounded-md bg-museum-bg border border-museum-border text-xs font-mono text-museum-gold font-semibold shadow-sm">
                     {activeLocation.period}
                   </span>
                 </div>
@@ -174,7 +186,7 @@ export default function IndiaMap({ onSelectLocationFilter }) {
                     {activeLocation.artworks.map((art, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-1 rounded-lg bg-museum-surface border border-museum-border/70 text-xs font-sans text-museum-cream"
+                        className="px-2.5 py-1 rounded-lg bg-museum-surface border border-museum-border/70 text-xs font-sans text-museum-cream shadow-sm"
                       >
                         {art}
                       </span>
@@ -186,7 +198,7 @@ export default function IndiaMap({ onSelectLocationFilter }) {
                 <div className="pt-4">
                   <button
                     onClick={() => onSelectLocationFilter(activeLocation.name)}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-museum-terracotta to-museum-sandstone text-white text-xs font-mono font-semibold uppercase tracking-widest hover:shadow-terracotta-glow transition-all flex items-center justify-center gap-2 group"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-museum-terracotta to-museum-sandstone text-white text-xs font-mono font-semibold uppercase tracking-widest hover:shadow-terracotta-glow transition-all flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     <span>View Artworks from {activeLocation.name}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -665,7 +665,7 @@ export const MAP_LOCATIONS = [
     name: 'Mohenjo-daro',
     state: 'Sindh (Indus Valley)',
     period: 'Indus Valley Civilization (2500–1900 BCE)',
-    coords: { x: 22, y: 35 },
+    coords: { x: 18, y: 35 },
     artworks: ['Dancing Girl', 'Priest-King Sculpture', 'Pashupati Seal'],
     description: 'Ancient Indus urban metropolis famous for grid planning, advanced drainage, lost-wax bronzes, and steatite seals.'
   },
@@ -674,7 +674,7 @@ export const MAP_LOCATIONS = [
     name: 'Sanchi',
     state: 'Madhya Pradesh',
     period: 'Mauryan & Early Buddhist (3rd C. BCE)',
-    coords: { x: 45, y: 48 },
+    coords: { x: 42, y: 49 },
     artworks: ['Great Stupa', 'Carved Torana Gateways', 'Ashokan Pillar Fragments'],
     description: 'Sacred Buddhist hilltop sanctuary preserving ancient India\'s oldest surviving stone stupa and narrative stone reliefs.'
   },
@@ -683,7 +683,7 @@ export const MAP_LOCATIONS = [
     name: 'Ajanta & Ellora',
     state: 'Maharashtra',
     period: 'Gupta & Rashtrakuta (2nd C. BCE – 10th C. CE)',
-    coords: { x: 38, y: 62 },
+    coords: { x: 36, y: 62 },
     artworks: ['Padmapani Bodhisattva Fresco', 'Kailash Rock-cut Temple'],
     description: 'World Heritage rock-cut cave complex preserving classical Buddhist murals and monolithic granite rock carvings.'
   },
@@ -692,7 +692,7 @@ export const MAP_LOCATIONS = [
     name: 'Khajuraho',
     state: 'Madhya Pradesh',
     period: 'Medieval Temple Art (1000 CE)',
-    coords: { x: 52, y: 44 },
+    coords: { x: 50, y: 44 },
     artworks: ['Kandariya Mahadeva Temple', 'Apsara Celestial Reliefs'],
     description: 'Chandela Dynasty temple complex world-renowned for soaring Nagara architecture and expressive sculptural friezes.'
   },
@@ -701,7 +701,7 @@ export const MAP_LOCATIONS = [
     name: 'Thanjavur',
     state: 'Tamil Nadu',
     period: 'Chola Dynasty (1000–1100 CE)',
-    coords: { x: 50, y: 84 },
+    coords: { x: 42, y: 86 },
     artworks: ['Chola Nataraja Bronzes', 'Brihadeeswarar Temple', 'Tanjore Gold Paintings'],
     description: 'Imperial Chola capital celebrated for monumental granite vimanas, lost-wax bronze casting, and gold-leaf sacred icons.'
   },
@@ -710,7 +710,7 @@ export const MAP_LOCATIONS = [
     name: 'Konark',
     state: 'Odisha',
     period: 'Medieval Temple Art (1250 CE)',
-    coords: { x: 68, y: 55 },
+    coords: { x: 65, y: 56 },
     artworks: ['Sun Temple Chariot Wheel', 'Surya Stone Sculptures'],
     description: '13th-century architectural masterpiece designed as a colossal stone chariot of the Sun God with 12 sundial wheels.'
   },
@@ -719,7 +719,7 @@ export const MAP_LOCATIONS = [
     name: 'Agra & Fatehpur Sikri',
     state: 'Uttar Pradesh',
     period: 'Indo-Islamic & Mughal (1550–1650 CE)',
-    coords: { x: 44, y: 38 },
+    coords: { x: 42, y: 35 },
     artworks: ['Taj Mahal Pietra Dura', 'Panch Mahal Pavilion', 'Mughal Miniatures'],
     description: 'Imperial Mughal capital home to translucent white marble inlay work and red sandstone palace architecture.'
   },
@@ -728,7 +728,7 @@ export const MAP_LOCATIONS = [
     name: 'Jaipur & Kishangarh',
     state: 'Rajasthan',
     period: 'Rajput & Regional Painting (1700–1800 CE)',
-    coords: { x: 36, y: 39 },
+    coords: { x: 32, y: 38 },
     artworks: ['Bani Thani Painting', 'Rajasthani Court Miniatures'],
     description: 'Royal Rajput court studios known for lyrical portraiture, poetic Ragamala paintings, and vibrant natural pigments.'
   },
@@ -737,7 +737,7 @@ export const MAP_LOCATIONS = [
     name: 'Kolkata (Calcutta)',
     state: 'West Bengal',
     period: 'Colonial & Bengal School (1800–1950 CE)',
-    coords: { x: 74, y: 50 },
+    coords: { x: 74, y: 48 },
     artworks: ['Company School Watercolors', 'Bharat Mata by Tagore'],
     description: 'Cultural hub of the Bengal Renaissance, birth site of anti-colonial nationalist art movements and Company School studies.'
   },
@@ -746,7 +746,7 @@ export const MAP_LOCATIONS = [
     name: 'Sarnath',
     state: 'Uttar Pradesh',
     period: 'Mauryan & Gupta Eras (250 BCE – 500 CE)',
-    coords: { x: 56, y: 40 },
+    coords: { x: 58, y: 38 },
     artworks: ['Lion Capital of Ashoka', 'Sarnath Preaching Buddha'],
     description: 'Sacred deer park site of Buddha\'s first sermon, home to the Ashokan Lion Capital and classic Gupta Buddha statues.'
   }
