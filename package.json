@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://Shameek-Panesar.github.io/indian-art-through-time",
+  "homepage": "https://shameek-panesar.github.io/indian_art1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
